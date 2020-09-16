@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">Movie MVVM</string>
+    <string name="movies">Movies</string>
+    <string name="select_movie_by_genre">Select Movie By Genre</string>
+    <string name="genre">Genre</string>
+    <string name="popular_movies">Popular Movies</string>
+    <string name="subtitle">Subtitle</string>
+    <string name="movie_info">Movie Info</string>
+    <string name="release_date">Release Date:</string>
+    <string name="rating">Rating:</string>
+    <string name="runtime">Runtime:</string>
+    <string name="budget">Budget:</string>
+    <string name="revenue">Revenue:</string>
+    <string name="overview">Overview</string>
+    <string name="error_message">Error Message</string>
+    <string name="watch_trailer">Watch Trailer</string>
+    <string name="movie_details">Movie Details</string>
+
+
+    <string-array name="GenreArrays">
+        <item>Action</item>
+        <item>Adventure</item>
+        <item>Animation</item>
+        <item>Comedy</item>
+        <item>Crime</item>
+        <item>Documentary</item>
+        <item>Drama</item>
+        <item>Family</item>
+        <item>History</item>
+        <item>Horror</item>
+    </string-array>
+</resources>
