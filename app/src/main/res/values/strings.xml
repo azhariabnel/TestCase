@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Movie MVVM</string>
+    <string name="app_name">My Movie</string>
     <string name="movies">Movies</string>
     <string name="select_movie_by_genre">Select Movie By Genre</string>
     <string name="genre">Genre</string>
