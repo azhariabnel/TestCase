@@ -1,8 +1,9 @@
 package com.moviesapp.mymoviesapp.ui.popular_movie
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Context
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -13,6 +14,7 @@ import com.moviesapp.mymoviesapp.data.api.TheMovieDBClient
 import com.moviesapp.mymoviesapp.data.api.TheMovieDBInterface
 import com.moviesapp.mymoviesapp.data.repository.NetworkState
 import kotlinx.android.synthetic.main.activity_main.*
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,6 +27,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val apiService : TheMovieDBInterface = TheMovieDBClient.getClient()
+        setTopBar()
         tvMovies.setText(getString(R.string.popular_movies))
 
         movieRepository = MoviePagedListRepository(apiService)
@@ -55,14 +58,22 @@ class MainActivity : AppCompatActivity() {
         })
 
         viewModel.networkState.observe(this, Observer {
-            progress_bar_popular.visibility = if (viewModel.listIsEmpty() && it == NetworkState.LOADING) View.VISIBLE else View.GONE
-            txt_error_popular.visibility = if (viewModel.listIsEmpty() && it == NetworkState.ERROR) View.VISIBLE else View.GONE
+            progress_bar_popular.visibility =
+                if (viewModel.listIsEmpty() && it == NetworkState.LOADING) View.VISIBLE else View.GONE
+            txt_error_popular.visibility =
+                if (viewModel.listIsEmpty() && it == NetworkState.ERROR) View.VISIBLE else View.GONE
 
             if (!viewModel.listIsEmpty()) {
                 movieAdapter.setNetworkState(it)
             }
         })
 
+    }
+
+    private fun setTopBar() {
+        val prfs = getSharedPreferences("Users", Context.MODE_PRIVATE)
+        val nickname = prfs.getString("Nickname", "")
+        tvHello.text = "Hello $nickname"
     }
 
 

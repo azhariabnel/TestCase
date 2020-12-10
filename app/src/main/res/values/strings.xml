@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My Movie</string>
+    <string name="app_name">MoviesApp</string>
     <string name="movies">Movies</string>
     <string name="select_movie_by_genre">Select Movie By Genre</string>
     <string name="genre">Genre</string>
@@ -15,6 +15,10 @@
     <string name="error_message">Error Message</string>
     <string name="watch_trailer">Watch Trailer</string>
     <string name="movie_details">Movie Details</string>
+    <string name="tidak_boleh_kosong">Nickname must be filled</string>
+    <string name="harus_lebih">Nickname must be 6 Characters</string>
+    <string name="harus_capital">Nickname must be capital at first letters</string>
+
 
 
     <string-array name="GenreArrays">

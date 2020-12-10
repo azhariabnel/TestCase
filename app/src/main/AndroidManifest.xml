@@ -11,15 +11,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name="com.moviesapp.mymoviesapp.ui.single_movie_details.SingleMovie">
-        </activity>
-        <activity android:name="com.moviesapp.mymoviesapp.ui.popular_movie.MainActivity">
+        <activity android:name=".ui.popular_movie.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity android:name="com.moviesapp.mymoviesapp.ui.single_movie_details.SingleMovie">
+        </activity>
+        <activity android:name="com.moviesapp.mymoviesapp.ui.popular_movie.MainActivity">
+        </activity>
+        <activity android:name=".ui.popular_movie.IntroActivity"/>
     </application>
 
 </manifest>

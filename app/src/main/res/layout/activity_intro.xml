@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/llNavigation1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:text="Hi! Im your navigator. \n Please pick a nickname."
+                android:lines="2"
+                android:textColor="@color/colorGrey"
+                android:textStyle="bold"
+                android:layout_marginTop="10dp"
+                android:textSize="24sp"/>
+
+            <EditText
+                android:id="@+id/etNickname"
+                android:layout_width="250dp"
+                android:layout_height="40dp"
+                android:background="@drawable/border_for_genre"
+                android:layout_gravity="center"
+                android:ellipsize="end"
+                android:inputType="textCapWords"
+                android:padding="5dp"
+                android:singleLine="true"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/colorBlack"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/tvErrorName"
+                style="@style/TextAppearance.AppCompat.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="4dp"
+                android:textColor="@color/colorRed"
+                android:textSize="24sp"
+                tools:text="Error Text"
+                android:visibility="gone"/>
+
+            <Button
+                android:id="@+id/btPick"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="80dp"
+                android:layout_marginTop="30dp"
+                android:text="Pick"
+                android:textColor="@color/colorWhite"
+                android:textAllCaps="false"
+                android:backgroundTint="@color/bluelight"/>
+        </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llNavigation2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tvNickIntro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Nice to meet you"
+            android:textColor="@color/colorGrey"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:textSize="24sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Now you can continue"
+            android:textColor="@color/colorGrey"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:textSize="24sp"/>
+
+        <Button
+            android:id="@+id/btContinue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="30dp"
+            android:text="Continue"
+            android:textColor="@color/colorWhite"
+            android:textAllCaps="false"
+            android:backgroundTint="@color/bluelight"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llNavigation3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Your nickname must : \n - 6 Characters \n - 1 Capital letters"
+            android:lines="3"
+            android:textColor="@color/colorRed"
+            android:textStyle="bold"
+            android:layout_marginTop="50dp"
+            android:layout_marginStart="80dp"
+            android:textSize="24sp"/>
+
+    </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
