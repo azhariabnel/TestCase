@@ -12,8 +12,15 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.moviesapp.mymoviesapp.R
 import com.moviesapp.mymoviesapp.data.api.TheMovieDBClient
 import com.moviesapp.mymoviesapp.data.api.TheMovieDBInterface
+import com.moviesapp.mymoviesapp.data.model.CarouselMovie
+import com.moviesapp.mymoviesapp.data.model.Movie
+
 import com.moviesapp.mymoviesapp.data.repository.NetworkState
+import com.moviesapp.mymoviesapp.ui.adapter.CarouselAdapter
+import com.opensooq.pluto.PlutoView
+import com.opensooq.pluto.listeners.OnItemClickListener
 import kotlinx.android.synthetic.main.activity_main.*
+import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -21,6 +28,14 @@ class MainActivity : AppCompatActivity() {
     private lateinit var viewModel: MainActivityViewModel
 
     lateinit var movieRepository: MoviePagedListRepository
+    private fun getCvMovies(): MutableList<CarouselMovie>{
+        val items = mutableListOf<CarouselMovie>()
+        items.add(CarouselMovie("Endgame",R.drawable.ic_end_game))
+        items.add(CarouselMovie("Captain Marvel",R.drawable.ic_captain_marvel))
+        items.add(CarouselMovie("Iron Man",R.drawable.ic_iron_man))
+        items.add(CarouselMovie("Doctor Strange",R.drawable.ic_dr_strange))
+        return items
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,7 +43,8 @@ class MainActivity : AppCompatActivity() {
 
         val apiService : TheMovieDBInterface = TheMovieDBClient.getClient()
         setTopBar()
-        tvMovies.setText(getString(R.string.popular_movies))
+        tvMovies1.setText(getString(R.string.popular_movies))
+        tvMovies.setText(getString(R.string.new_release))
 
         movieRepository = MoviePagedListRepository(apiService)
 
@@ -45,8 +61,9 @@ class MainActivity : AppCompatActivity() {
                 else return 3
             }
         };
-        spinnerGenre.setItems(resources.getStringArray(R.array.GenreArrays))
-        spinnerGenre.setTitle("Select Genre")
+        /*spinnerGenre.setItems(resources.getStringArray(R.array.GenreArrays))
+        spinnerGenre.setTitle("Select Genre")*/
+        setCarousel()
 
 
         rv_movie_list.layoutManager = gridLayoutManager
@@ -70,10 +87,32 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    private fun setCarousel() {
+        val pluto = findViewById<PlutoView>(R.id.slider_view)
+        val adapter = CarouselAdapter(getCvMovies(), object : OnItemClickListener<CarouselMovie> {
+            override fun onItemClicked(item: CarouselMovie?, position: Int) {
+
+            }
+
+        })
+
+        pluto.create(adapter, lifecycle = lifecycle)
+    }
+
     private fun setTopBar() {
         val prfs = getSharedPreferences("Users", Context.MODE_PRIVATE)
         val nickname = prfs.getString("Nickname", "")
-        tvHello.text = "Hello $nickname"
+        val calendar = Calendar.getInstance()
+        val timeOfDay = calendar.get(Calendar.HOUR_OF_DAY)
+        if (timeOfDay >= 0 && timeOfDay < 12) {
+            tvHello?.setText("Good morning, $nickname")
+        } else if (timeOfDay >= 12 && timeOfDay < 15) {
+            tvHello?.setText("Good afternoon, $nickname")
+        } else if (timeOfDay >= 15 && timeOfDay < 18) {
+            tvHello?.setText("Good afternoon, $nickname")
+        } else if (timeOfDay >= 18 && timeOfDay < 24) {
+            tvHello?.setText("Good evening, $nickname")
+        }
     }
 
 

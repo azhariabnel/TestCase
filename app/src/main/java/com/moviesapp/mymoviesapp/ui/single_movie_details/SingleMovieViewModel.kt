@@ -3,7 +3,7 @@ package com.moviesapp.mymoviesapp.ui.single_movie_details
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.moviesapp.mymoviesapp.data.repository.NetworkState
-import com.moviesapp.mymoviesapp.data.vo.MovieDetails
+import com.moviesapp.mymoviesapp.data.model.MovieDetails
 import io.reactivex.disposables.CompositeDisposable
 
 class SingleMovieViewModel (private val movieRepository : MovieDetailsRepository, movieId: Int)  : ViewModel() {

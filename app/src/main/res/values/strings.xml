@@ -4,6 +4,7 @@
     <string name="select_movie_by_genre">Select Movie By Genre</string>
     <string name="genre">Genre</string>
     <string name="popular_movies">Popular Movies</string>
+    <string name="new_release">New Release Movies</string>
     <string name="subtitle">Subtitle</string>
     <string name="movie_info">Movie Info</string>
     <string name="release_date">Release Date:</string>
@@ -18,7 +19,7 @@
     <string name="tidak_boleh_kosong">Nickname must be filled</string>
     <string name="harus_lebih">Nickname must be 6 Characters</string>
     <string name="harus_capital">Nickname must be capital at first letters</string>
-
+    <string name="title">Title</string>
 
 
     <string-array name="GenreArrays">

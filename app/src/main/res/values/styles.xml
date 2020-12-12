@@ -14,4 +14,18 @@
         <item name="android:layout_gravity">center</item>
     </style>
 
+    <style name="AppTheme.TabLayout" parent="TextAppearance.AppCompat">
+        <item name="tabIndicatorColor">@color/bluelight</item>
+        <item name="tabIndicatorHeight">2dp</item>
+        <item name="tabPaddingStart">15dp</item>
+        <item name="tabPaddingEnd">15dp</item>
+        <item name="tabBackground">@color/colorBlue</item>
+        <item name="tabSelectedTextColor">@color/colorWhite</item>
+    </style>
+
+    <style name="TabLayoutCustom" parent="TextAppearance.Design.Tab">
+        <item name="textAllCaps">false</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
 </resources>

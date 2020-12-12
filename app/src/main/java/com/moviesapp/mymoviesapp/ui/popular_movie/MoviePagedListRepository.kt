@@ -9,7 +9,7 @@ import com.moviesapp.mymoviesapp.data.api.TheMovieDBInterface
 import com.moviesapp.mymoviesapp.data.repository.MovieDataSource
 import com.moviesapp.mymoviesapp.data.repository.MovieDataSourceFactory
 import com.moviesapp.mymoviesapp.data.repository.NetworkState
-import com.moviesapp.mymoviesapp.data.vo.Movie
+import com.moviesapp.mymoviesapp.data.model.Movie
 import io.reactivex.disposables.CompositeDisposable
 
 class MoviePagedListRepository (private val apiService : TheMovieDBInterface) {

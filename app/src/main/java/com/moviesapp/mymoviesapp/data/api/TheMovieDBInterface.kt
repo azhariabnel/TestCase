@@ -1,8 +1,8 @@
 package com.moviesapp.mymoviesapp.data.api
 
-import com.moviesapp.mymoviesapp.data.vo.Genre
-import com.moviesapp.mymoviesapp.data.vo.MovieDetails
-import com.moviesapp.mymoviesapp.data.vo.MovieResponse
+import com.moviesapp.mymoviesapp.data.model.Genre
+import com.moviesapp.mymoviesapp.data.model.MovieDetails
+import com.moviesapp.mymoviesapp.data.model.MovieResponse
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Path

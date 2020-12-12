@@ -23,6 +23,7 @@
         <activity android:name="com.moviesapp.mymoviesapp.ui.popular_movie.MainActivity">
         </activity>
         <activity android:name=".ui.popular_movie.IntroActivity"/>
+        <activity android:name=".ui.single_movie_details.MovieDetailsActivity"/>
     </application>
 
 </manifest>

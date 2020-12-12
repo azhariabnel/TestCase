@@ -2,6 +2,7 @@ package com.moviesapp.mymoviesapp.ui.popular_movie
 
 import android.content.Context
 import android.content.Intent
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,14 +12,18 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.moviesapp.mymoviesapp.R
 import com.moviesapp.mymoviesapp.data.api.POSTER_BASE_URL
+import com.moviesapp.mymoviesapp.data.model.Movie
 import com.moviesapp.mymoviesapp.data.repository.NetworkState
-import com.moviesapp.mymoviesapp.data.vo.Movie
+import com.moviesapp.mymoviesapp.ui.fragment.MovieDetail
+import com.moviesapp.mymoviesapp.ui.single_movie_details.MovieDetailsActivity
 import com.moviesapp.mymoviesapp.ui.single_movie_details.SingleMovie
 import kotlinx.android.synthetic.main.movie_list_item.view.*
 import kotlinx.android.synthetic.main.network_state_item.view.*
 
 
-class PopularMoviePagedListAdapter(public val context: Context) : PagedListAdapter<Movie, RecyclerView.ViewHolder>(MovieDiffCallback()) {
+class PopularMoviePagedListAdapter(public val context: Context) : PagedListAdapter<Movie, RecyclerView.ViewHolder>(
+    MovieDiffCallback()
+) {
 
     val MOVIE_VIEW_TYPE = 1
     val NETWORK_VIEW_TYPE = 2
@@ -41,7 +46,7 @@ class PopularMoviePagedListAdapter(public val context: Context) : PagedListAdapt
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (getItemViewType(position) == MOVIE_VIEW_TYPE) {
-            (holder as MovieItemViewHolder).bind(getItem(position),context)
+            (holder as MovieItemViewHolder).bind(getItem(position), context)
         }
         else {
             (holder as NetworkStateItemViewHolder).bind(networkState)
@@ -80,9 +85,9 @@ class PopularMoviePagedListAdapter(public val context: Context) : PagedListAdapt
     }
 
 
-    class MovieItemViewHolder (view: View) : RecyclerView.ViewHolder(view) {
+    class MovieItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
-        fun bind(movie: Movie?,context: Context) {
+        fun bind(movie: Movie?, context: Context) {
             itemView.cv_movie_title.text = movie?.title
             itemView.cv_movie_release_date.text =  movie?.releaseDate
 
@@ -92,7 +97,7 @@ class PopularMoviePagedListAdapter(public val context: Context) : PagedListAdapt
                 .into(itemView.cv_iv_movie_poster);
 
             itemView.setOnClickListener{
-                val intent = Intent(context, SingleMovie::class.java)
+                val intent = Intent(context, MovieDetailsActivity::class.java)
                 intent.putExtra("id", movie?.id)
                 context.startActivity(intent)
             }
@@ -101,7 +106,7 @@ class PopularMoviePagedListAdapter(public val context: Context) : PagedListAdapt
 
     }
 
-    class NetworkStateItemViewHolder (view: View) : RecyclerView.ViewHolder(view) {
+    class NetworkStateItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         fun bind(networkState: NetworkState?) {
             if (networkState != null && networkState == NetworkState.LOADING) {

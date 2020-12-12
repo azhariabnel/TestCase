@@ -1,7 +1,5 @@
 package com.moviesapp.mymoviesapp.ui.single_movie_details
 
-import android.content.ActivityNotFoundException
-import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -17,7 +15,7 @@ import com.moviesapp.mymoviesapp.data.api.POSTER_BASE_URL
 import com.moviesapp.mymoviesapp.data.api.TheMovieDBClient
 import com.moviesapp.mymoviesapp.data.api.TheMovieDBInterface
 import com.moviesapp.mymoviesapp.data.repository.NetworkState
-import com.moviesapp.mymoviesapp.data.vo.MovieDetails
+import com.moviesapp.mymoviesapp.data.model.MovieDetails
 import kotlinx.android.synthetic.main.activity_single_movie.*
 import java.text.NumberFormat
 import java.util.*

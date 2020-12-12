@@ -64,4 +64,9 @@ dependencies {
     //custom spinner jrSpinner
     implementation 'com.github.jrizani:JRSpinner:1.1.2'
 
+    //custom page indicator
+    implementation 'com.opensooq.android:pluto:1.6'
+    implementation 'com.synnapps:carouselview:0.1.5'
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
 }
